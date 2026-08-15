@@ -7,7 +7,7 @@
 ** File: 	source.cpp
 ** Description: Final Assignment Group Project
 **
-** Author: 	[Team leader], [Team member], & Nicholas Yi
+** Author: 	Juno Presken, Tamala Scott, & Nicholas Yi
 ** Date: 	08.14.2026
 ** -------------------------------------------------------------------------*/
 // YiNicholasAssignment5.cpp : This file contains the 'main' function. Program execution begins and ends there.
