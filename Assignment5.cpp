@@ -1,42 +1,47 @@
-// Assignment5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/* ---------------------------------------------------------------------------
+** I attest that this following code represents my own work and is subject to
+** the plagiarism policy found in the course syllabus.
+**
+** Class: 	CSC 242
+** Assignment: 	Lesson 5
+** File: 	Assignment5.cpp
+** Description: Group Project, Week 4: Tamala Scott, Nicholas Yi, and Juno Presken
+**
+** Author: 	Tamala Scott
+** Date: 	8-14-2026
+** -------------------------------------------------------------------------*/
+
+
 #include <iostream>
-#include <fstream>
-#include <string>
 #include <vector>
+#include <string>
 #include <algorithm>
+#include <sstream>
 
 int main() {
-    // 1. Open the dictionary file.
-    std::ifstream dictFile("words.txt");
+    // Defined vector/string called words
+    std::vector<std::string> words = {
+        "the", "last", "yellow", "fellow", "fell",
+        "bumped", "his", "head", "and", "dog",
+        "a", "ate", "bread"
+    };
 
-    // 2. Define a vector of strings called words.
-    std::vector<std::string> words;
+    //file to be checked
+    std::string documentContent = "the last yellow fella fell and bumped his head and a dog ates bread";
+
+    // We use a stringstream to read the words one by one, exactly like a file stream
+    std::stringstream checkStream(documentContent);
     std::string word;
 
-    // 3. For each word in the dictionary file
-    while (dictFile >> word) {
-        // 4. Append the word to the words vector.
-        words.push_back(word);
-    }
-    dictFile.close();
+    std::cout << "Misspelled words found:\n";
+    std::cout << "-----------------------\n";
 
-    // 5. Open the file to be checked.
-    std::ifstream checkFile("input.txt");
-    std::string checkWord;
-
-    // 6. For each word in that file
-    while (checkFile >> checkWord) {
-        // 7. If the word is not contained in the words vector
-        if (std::find(words.begin(), words.end(), checkWord) == words.end()) {
-            // 8. Print the word.
-            std::cout << checkWord << std::endl;
+    // 3. For each word, if it's not in our words vector, print it
+    while (checkStream >> word) {
+        if (std::find(words.begin(), words.end(), word) == words.end()) {
+            std::cout << word << "\n";
         }
     }
-    checkFile.close();
 
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
